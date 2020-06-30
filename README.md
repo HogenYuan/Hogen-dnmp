@@ -1,4 +1,4 @@
-
+# docker-compose (lnmp + 拓展)
 
 ## 1.使用方式
 1. 环境安装 (参考文档[INIT.md](INIT.md))
@@ -37,3 +37,13 @@ $ docker-compose build php56                  # 构建或者重新构建服务
 $ docker-compose down                       # 停止并删除容器，网络，图像和挂载卷
 ```
 
+<<<<<<< HEAD
+=======
+## 5. 拓展
+```bash
+1.Elastic+logstash+kinaba
+2.Rabbitmq
+3.redis
+```
+···
+>>>>>>> 46b5d285e512921e82a22a8272b3e86bc2f1a7ed

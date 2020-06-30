@@ -24,52 +24,69 @@ services:
     restart: always
     networks:
       - default
-  php56:
-   build:
-     context: ./services/php
-     args:
-       PHP_VERSION: php:${PHP56_VERSION}-fpm-alpine
-       CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
-       PHP_EXTENSIONS: ${PHP56_EXTENSIONS}
-       TZ: "$TZ"
-   container_name: ${PROJECT_NAME}_php56
-   expose:
-     - 9501
-   volumes:
-     - ${SOURCE_DIR}:/www/:rw
-     - ${PHP56_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
-     - ${PHP56_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
-     - ${PHP56_LOG_DIR}:/var/log/php
-     - ${DATA_DIR}/composer:/tmp/composer
-   restart: always
-   cap_add:
-     - SYS_PTRACE
-   networks:
-     - default
-  # php74:
-  #   build:
-  #     context: ./services/php
-  #     args:
-  #       PHP_VERSION: php:${PHP74_VERSION}-fpm-alpine
-  #       CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
-  #       PHP_EXTENSIONS: ${PHP74_EXTENSIONS}
-  #       TZ: "$TZ"
-  #   container_name: ${PROJECT_NAME}_php74
-  #   expose:
-  #     - 9501
-  #   extra_hosts:
-  #     - "www.island.com:192.168.1.110"
+  # php56:
+  #  build:
+  #    context: ./services/php
+  #    args:
+  #      PHP_VERSION: php:${PHP56_VERSION}-fpm-alpine
+  #      CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
+  #      PHP_EXTENSIONS: ${PHP56_EXTENSIONS}
+  #      TZ: "$TZ"
+  #  container_name: ${PROJECT_NAME}_php56
+  #  expose:
+  #    - 9501
+  #  volumes:
+  #    - ${SOURCE_DIR}:/www/:rw
+  #    - ${PHP56_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
+  #    - ${PHP56_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
+  #    - ${PHP56_LOG_DIR}:/var/log/php
+  #    - ${DATA_DIR}/composer:/tmp/composer
+  #  restart: always
+  #  cap_add:
+  #    - SYS_PTRACE
+  #  networks:
+  #    - default
+  # rabbitmq:
+  #   container_name: ${PROJECT_NAME}_rabbitmq
+  #   image: rabbitmq:management
+  #   restart: always
+  #   ports:
+  #     - 5672:5672
+  #     - 15671:15671
+  #     - 15672:15672
+  #     - 5671:5671
+  #     - 25672:25672
   #   volumes:
   #     - ${SOURCE_DIR}:/www/:rw
-  #     - ${PHP74_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
-  #     - ${PHP74_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
-  #     - ${PHP74_LOG_DIR}:/var/log/php
-  #     - ${DATA_DIR}/composer:/tmp/composer
-  #   restart: always
-  #   cap_add:
-  #     - SYS_PTRACE
-  #   networks:
-  #     - default
+  #   environment:
+  #     RABBITMQ_DEFAULT_USER: "${RABBITMQ_DEFAULT_USER}"
+  #     RABBITMQ_DEFAULT_PASS: "${RABBITMQ_DEFAULT_PASS}"
+  #  es6:
+
+  php74:
+    build:
+      context: ./services/php
+      args:
+        PHP_VERSION: php:${PHP74_VERSION}-fpm-alpine
+        CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
+        PHP_EXTENSIONS: ${PHP74_EXTENSIONS}
+        TZ: "$TZ"
+    container_name: ${PROJECT_NAME}_php74
+    expose:
+      - 9501
+    extra_hosts:
+      - "www.island.com:192.168.1.110"
+    volumes:
+      - ${SOURCE_DIR}:/www/:rw
+      - ${PHP74_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
+      - ${PHP74_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
+      - ${PHP74_LOG_DIR}:/var/log/php
+      - ${DATA_DIR}/composer:/tmp/composer
+    restart: always
+    cap_add:
+      - SYS_PTRACE
+    networks:
+      - default
   mysql5:
    image: mysql:${MYSQL5_VERSION}
    container_name: ${PROJECT_NAME}_mysql
