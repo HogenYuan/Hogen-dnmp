@@ -1,0 +1,16 @@
+version: '3'
+services:
+  filebeat:
+    # 容器名称
+    container_name: elk_filebeat
+    # 镜像
+    image: docker.elastic.co/beats/filebeat:7.1.1
+    # 重启机制
+    restart: always
+    # 持久化挂载
+    volumes:
+      - ./filebeat.yml:/usr/share/filebeat/filebeat.yml
+      # 映射到容器中[作为数据源]
+      - ./logs/django:/data/logs
+      - ./logs/filebeat:/usr/share/filebeat/logs
+      - ./data:/usr/share/filebeat/data
