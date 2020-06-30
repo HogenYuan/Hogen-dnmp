@@ -37,3 +37,8 @@ $ docker-compose build php56                  # 构建或者重新构建服务
 $ docker-compose down                       # 停止并删除容器，网络，图像和挂载卷
 ```
 
+## 5. 拓展
+1.Elastic+logstash+kinaba
+2.Rabbitmq
+3.redis
+···
