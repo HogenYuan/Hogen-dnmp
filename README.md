@@ -39,7 +39,7 @@ $ docker-compose down                       # 停止并删除容器，网络，�
 
 ## 5. 拓展
 ```bash
-1.Elastic+logstash+kinaba
+1.Elasticsearch + logstash + kinaba + filebeat
 2.Rabbitmq
 3.redis
 ```
