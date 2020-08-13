@@ -1,6 +1,6 @@
 ##  docker-compose (lnmp + 拓展) + centos7.6(onekey脚本)
 
-## 1.使用方式
+### 1.使用方式
 
 1. 环境安装 (参考文档[INIT.md](INIT.md))
 ```bash
@@ -12,7 +12,7 @@ $ sh docker.sh 或 ./docker.sh
 2. `docker-compose up        # 启动`
 3. 在浏览器中访问：`http://localhost`就能看到效果，PHP代码在文件`./www/docker/index.php`。
 
-## 2.修改配置
+### 2.修改配置
 
 配置文件在目录下的`.env`文件中
 
@@ -40,7 +40,7 @@ $ chmod +x init-yum.sh
 $ sh init-yum.sh 或 ./init-yum.sh
 ```
 
-## 4.管理命令
+### 4.管理命令
 
 ```bash
 $ docker-compose up                         # 创建并且启动所有容器
@@ -54,7 +54,7 @@ $ docker-compose build php56                # 构建或者重新构建服务
 $ docker-compose down                       # 停止并删除容器，网络，图像和挂载卷
 ```
 
-## 5. 拓展
+### 5. 拓展
 ```bash
 1.Elasticsearch + logstash + kinaba + filebeat
 # /services/elk/docker-compose.yml
