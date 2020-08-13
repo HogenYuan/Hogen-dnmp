@@ -3,6 +3,12 @@
 ## 1.使用方式
 
 1. 环境安装 (参考文档[INIT.md](INIT.md))
+```bash
+# 初始化环境 -- 一键安装脚本包
+$ cd ~/onekey   
+$ chmod +x docker.sh
+$ sh docker.sh 或 ./docker.sh
+```
 2. `docker-compose up        # 启动`
 3. 在浏览器中访问：`http://localhost`就能看到效果，PHP代码在文件`./www/docker/index.php`。
 

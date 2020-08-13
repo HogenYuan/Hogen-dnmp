@@ -1,6 +1,12 @@
 
+## 初始化环境 -- 一键安装脚本包
+```bash
+$ cd ~/onekey   
+$ chmod +x docker.sh
+$ sh docker.sh 或 ./docker.sh
+```
 
-## 初始化环境(Linux)
+## 初始化环境 -- 手动安装
 
 1. 安装docker
 ```
@@ -40,6 +46,4 @@ docker version
 systemctl restart docker
 docker info
 ```
-
-## 初始化环境（windows）
 
