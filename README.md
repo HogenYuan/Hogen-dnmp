@@ -70,12 +70,16 @@ $ docker-compose down                       # 停止并删除容器，网络，�
 
 ### 6. Debug 
 1.syntax error:unexpected word
+```php
+// windows系统的换行问题
+   IDE右下角修改CRLF为LF
 ```
-    windows系统的换行问题
-    IDE右下角修改CRLF为LF
-```
-2.执行sh时syntax error near unexpected token
-```
-    
+2.syntax error near unexpected token  (执行sh时)
+```php
+// window和linux编码不同
+    vi xx
+    :set ff 	    //查看编码，window=dos，linux=unix
+    :set ff=unix
+    :wq
 ```
 

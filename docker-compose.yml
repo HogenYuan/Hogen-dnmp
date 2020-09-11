@@ -7,6 +7,7 @@ services:
     volumes:
       - ${SOURCE_DIR}:/www/:rw
     restart: always
+    privileged: true
     networks:
       - default
   nginx:
