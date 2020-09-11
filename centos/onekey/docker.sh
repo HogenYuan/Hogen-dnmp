@@ -82,8 +82,8 @@ echo -e "\033[32mDocker-compose 安装成功\033[0m"
 
 if [[ $installK = "y" ]]; then
    docker pull portainer/portainer
-   if !(docker run -d --name portainer -p 10001:9000 --restart=always -v /e/docker/portainer:/var/run/docker.sock portainer/portainer); then
-        echo -e "\033[31mError:Docker可视化拉取失败\033[0m"
+   if !(docker run -d --name portainer -p 10001:9000 --restart=always -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer); then
+        echo -e "\033[31mError:Docker可视化运行失败\033[0m"
         exit 1
    fi
    echo -e "\033[32mDocker可视化安装成功,请访问10001端口\033[0m"
