@@ -45,6 +45,7 @@ services:
     container_name: php74
     expose:
       - 9501
+      - 9000
       # extra_hosts:
       # - "hogen.com:192.168.1.110"
     volumes:

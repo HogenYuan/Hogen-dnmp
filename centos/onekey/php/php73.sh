@@ -8,3 +8,5 @@ yum --enablerepo=remi install php73-php php73-php-pear php73-php-bcmath php73-ph
     php73-php-mbstring php73-php-zip php73-php-ldap php73-php-imap php73-php-pecl-mcrypt -y
 systemctl restart php73-php-fpm
 systemctl enable php73-php-fpm
+mv /opt/remi/php73/root/usr/bin/php/  /usr/local/etc/php/
+ln -s /usr/local/etc/php/ /usr/bin/php

@@ -82,4 +82,11 @@ $ docker-compose down                       # 停止并删除容器，网络，�
     :set ff=unix
     :wq
 ```
+3.php-fpm 9000端口问题
+```php
+    // *.conf
+   location ~ \.php(.*)$ {
+       fastcgi_pass   php74:9000;       //这里尽量不用127.0.0.1，避免本地9000端口被占用
+   }
+```
 
