@@ -1,6 +1,11 @@
 #!/bin/bash
 # 文档 https://www.php.cn/php-weizijiaocheng-441928.html
 
+#获取php.ini目录
+phpIniPath=$(php -r "echo php_ini_loaded_file();")
+#获取php目录
+phpdPath=$(php -r "\$list = explode(',', php_ini_scanned_files());if(isset(\$list[0])){echo \$list[0];}")
+
 #安装librdkafka
 cd /usr/local/src
 git clone https://github.com/edenhill/librdkafka.git
