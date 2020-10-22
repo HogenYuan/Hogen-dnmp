@@ -86,7 +86,15 @@ $ docker-compose down                       # 停止并删除容器，网络，�
 ```php
     // *.conf
    location ~ \.php(.*)$ {
-       fastcgi_pass   php74:9000;       //这里尽量不用127.0.0.1，避免本地9000端口被占用
+       #通过这里切换php版本，php74等于容器内部IP，如用127.0.0.1则变成本地IP
+       fastcgi_pass   php74:9000;       
    }
+```
+4.php安装插件问题
+```php
+1. .env 添加拓展
+    PHP74_EXTENSIONS=xxx
+2. extensions\install.sh
+    把tar放到本目录，按照规则添加插件(参考installChilkat)
 ```
 

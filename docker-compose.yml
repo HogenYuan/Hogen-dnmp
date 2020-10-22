@@ -36,7 +36,7 @@ services:
       - default
   php74:
     build:
-      context: ./services/php
+      context: ./services/php74
       args:
         PHP_VERSION: php:${PHP74_VERSION}-fpm-alpine
         CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
@@ -87,6 +87,29 @@ services:
       TZ: "$TZ"
     networks:
       - default
+#  php71:
+#    build:
+#      context: ./services/php71
+#      args:
+#        PHP_VERSION: php:${PHP71_VERSION}-fpm-alpine
+#        CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
+#        PHP_EXTENSIONS: ${PHP71_EXTENSIONS}
+#        TZ: "$TZ"
+#    container_name: php71
+#    expose:
+#      - 9501
+#      - 9000
+#    volumes:
+#      - ${SOURCE_DIR}:/www/:rw
+#      - ${PHP71_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
+#      - ${PHP71_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
+#      - ${PHP71_LOG_DIR}:/var/log/php
+#      - ${DATA_DIR}/composer:/tmp/composer
+#    restart: always
+#    cap_add:
+#      - SYS_PTRACE
+#    networks:
+#      - default
   # php56:
   #  build:
   #    context: ./services/php
