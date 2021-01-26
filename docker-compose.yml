@@ -1,15 +1,15 @@
 version: "3"
 services:
-  centos:
-    build:
-      context: ./centos/
-    container_name: centos
-    volumes:
-      - ${SOURCE_DIR}:/www/:rw
-    restart: always
-    privileged: true
-    networks:
-      - default
+#  centos:
+#    build:
+#      context: ./centos/
+#    container_name: centos
+#    volumes:
+#      - ${SOURCE_DIR}:/www/:rw
+#    restart: always
+#    privileged: true
+#    networks:
+#      - default
   nginx:
     build:
       context: ./services/nginx
