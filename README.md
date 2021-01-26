@@ -29,7 +29,7 @@ $ sh docker.sh 或 ./docker.sh
 $ docker login --username={阿里云账号} registry.cn-shenzhen.aliyuncs.com	
 $ docker pull registry.cn-shenzhen.aliyuncs.com/hogenyuan/centos7.6:latest
 $ docker run -ti -d registry.cn-shenzhen.aliyuncs.com/hogenyuan/centos7.6
-$ docke exec -ti registry.cn-shenzhen.aliyuncs.com/hogenyuan/centos7.6 bash
+$ docker exec -ti registry.cn-shenzhen.aliyuncs.com/hogenyuan/centos7.6 bash
 
 # 执行安装脚本
 # init-yum 更换阿里云源
@@ -97,4 +97,8 @@ $ docker-compose down                       # 停止并删除容器，网络，�
 2. extensions\install.sh
     把tar放到本目录，按照规则添加插件(参考installChilkat)
 ```
-
+5.宿主host执行php-cli命令
+```php
+1. 直接exec进php容器执行cli命令
+2. 添加方法 https://github.com/yeszao/dnmp#34-host%E4%B8%AD%E4%BD%BF%E7%94%A8php%E5%91%BD%E4%BB%A4%E8%A1%8Cphp-cli
+```
