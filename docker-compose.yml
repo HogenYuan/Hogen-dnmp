@@ -1,15 +1,5 @@
 version: "3"
 services:
-#  centos:
-#    build:
-#      context: ./centos/
-#    container_name: centos
-#    volumes:
-#      - ${SOURCE_DIR}:/www/:rw
-#    restart: always
-#    privileged: true
-#    networks:
-#      - default
   nginx:
     build:
       context: ./services/nginx
@@ -46,8 +36,6 @@ services:
     expose:
       - 9501
       - 9000
-      # extra_hosts:
-      # - "hogen.com:192.168.1.110"
     volumes:
       - ${SOURCE_DIR}:/www/:rw
       - ${PHP74_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
@@ -87,65 +75,52 @@ services:
       TZ: "$TZ"
     networks:
       - default
-#  php71:
+#  centos:
 #    build:
-#      context: ./services/php71
-#      args:
-#        PHP_VERSION: php:${PHP71_VERSION}-fpm-alpine
-#        CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
-#        PHP_EXTENSIONS: ${PHP71_EXTENSIONS}
-#        TZ: "$TZ"
-#    container_name: php71
-#    expose:
-#      - 9501
-#      - 9000
+#      context: ./centos/
+#    container_name: centos
 #    volumes:
 #      - ${SOURCE_DIR}:/www/:rw
-#      - ${PHP71_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
-#      - ${PHP71_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
-#      - ${PHP71_LOG_DIR}:/var/log/php
-#      - ${DATA_DIR}/composer:/tmp/composer
 #    restart: always
-#    cap_add:
-#      - SYS_PTRACE
+#    privileged: true
 #    networks:
 #      - default
-  # php56:
-  #  build:
-  #    context: ./services/php
-  #    args:
-  #      PHP_VERSION: php:${PHP56_VERSION}-fpm-alpine
-  #      CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
-  #      PHP_EXTENSIONS: ${PHP56_EXTENSIONS}
-  #      TZ: "$TZ"
-  #  container_name: ${PROJECT_NAME}_php56
-  #  expose:
-  #    - 9501
-  #  volumes:
-  #    - ${SOURCE_DIR}:/www/:rw
-  #    - ${PHP56_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
-  #    - ${PHP56_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
-  #    - ${PHP56_LOG_DIR}:/var/log/php
-  #    - ${DATA_DIR}/composer:/tmp/composer
-  #  restart: always
-  #  cap_add:
-  #    - SYS_PTRACE
-  #  networks:
-  #    - default
-  # rabbitmq:
-  #   container_name: ${PROJECT_NAME}_rabbitmq
-  #   image: rabbitmq:management
-  #   restart: always
-  #   ports:
-  #     - 5672:5672
-  #     - 15671:15671
-  #     - 15672:15672
-  #     - 5671:5671
-  #     - 25672:25672
-  #   volumes:
-  #     - ${SOURCE_DIR}:/www/:rw
-  #   environment:
-  #     RABBITMQ_DEFAULT_USER: "${RABBITMQ_DEFAULT_USER}"
-  #     RABBITMQ_DEFAULT_PASS: "${RABBITMQ_DEFAULT_PASS}"
+# php56:
+#  build:
+#    context: ./services/php
+#    args:
+#      PHP_VERSION: php:${PHP56_VERSION}-fpm-alpine
+#      CONTAINER_PACKAGE_URL: ${CONTAINER_PACKAGE_URL}
+#      PHP_EXTENSIONS: ${PHP56_EXTENSIONS}
+#      TZ: "$TZ"
+#  container_name: ${PROJECT_NAME}_php56
+#  expose:
+#    - 9501
+#  volumes:
+#    - ${SOURCE_DIR}:/www/:rw
+#    - ${PHP56_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
+#    - ${PHP56_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
+#    - ${PHP56_LOG_DIR}:/var/log/php
+#    - ${DATA_DIR}/composer:/tmp/composer
+#  restart: always
+#  cap_add:
+#    - SYS_PTRACE
+#  networks:
+#    - default
+# rabbitmq:
+#   container_name: ${PROJECT_NAME}_rabbitmq
+#   image: rabbitmq:management
+#   restart: always
+#   ports:
+#     - 5672:5672
+#     - 15671:15671
+#     - 15672:15672
+#     - 5671:5671
+#     - 25672:25672
+#   volumes:
+#     - ${SOURCE_DIR}:/www/:rw
+#   environment:
+#     RABBITMQ_DEFAULT_USER: "${RABBITMQ_DEFAULT_USER}"
+#     RABBITMQ_DEFAULT_PASS: "${RABBITMQ_DEFAULT_PASS}"
 networks:
   default:
