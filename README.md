@@ -1,5 +1,18 @@
 ##  docker-compose (lnmp + 拓展) + centos7.6(onekey脚本)
 [github](https://github.com/HogenYuan/Hogen-dnmp)
+
+[:heavy_check_mark:]php-fpm
+[:heavy_check_mark:]mysql5
+[:heavy_check_mark:]nginx
+[:heavy_check_mark:]redis
+[:heavy_check_mark:]centos7.6
+[:heavy_check_mark:]rabbitmq
+[:heavy_check_mark:]Elasticsearch + logstash + kibana + filebeat
+[:heavy_check_mark:]onekey一键安装脚本[centos]
+[ ]clickhouse
+
+
+
 ### 1.使用方式
 
 1. 环境安装 (参考文档[INIT.md](INIT.md))
@@ -95,10 +108,30 @@ $ docker-compose down                       # 停止并删除容器，网络，�
 1. .env 添加拓展
     PHP74_EXTENSIONS=xxx
 2. extensions\install.sh
-    把tar放到本目录，按照规则添加插件(参考installChilkat)
+    把tar放到本目录，按照规则添加插件(参考install Chilkat)
 ```
 5.宿主host执行php-cli命令
 ```php
 1. 直接exec进php容器执行cli命令
 2. 添加方法 https://github.com/yeszao/dnmp#34-host%E4%B8%AD%E4%BD%BF%E7%94%A8php%E5%91%BD%E4%BB%A4%E8%A1%8Cphp-cli
+```
+6.容器访问宿主机局域网
+```php
+* 配置双向nat
+* network走宿主机的网络,但是会导致nginx配置的PHP74标识符无法识别
+ network_mode: host
+```
+
+7.容器无法执行bash脚本
+```php
+由于目前docker的php镜像使用的是 Alpine Linux【相比于centos等的优点是镜像大小较小】。
+容器内部shell只有sh和ash，没有bash
+
+1. 进入容器安装bash apk add bash
+2. shell脚本固定php bin路径cp /usr/local/bin/php /usr/bin/php
+```
+
+8.yaml出现\t问题
+```php
+ 去掉空格重新缩进，window的\t格式问题
 ```
