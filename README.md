@@ -1,15 +1,15 @@
 ##  docker-compose (lnmp + 拓展) + centos7.6(onekey脚本)
 [github](https://github.com/HogenYuan/Hogen-dnmp)
 
-[:heavy_check_mark:]php-fpm
-[:heavy_check_mark:]mysql5
-[:heavy_check_mark:]nginx
-[:heavy_check_mark:]redis
-[:heavy_check_mark:]centos7.6
-[:heavy_check_mark:]rabbitmq
-[:heavy_check_mark:]Elasticsearch + logstash + kibana + filebeat
-[:heavy_check_mark:]onekey一键安装脚本[centos]
-[ ]clickhouse
+- [:heavy_check_mark:]php-fpm
+- [:heavy_check_mark:]mysql5
+- [:heavy_check_mark:]nginx
+- [:heavy_check_mark:]redis
+- [:heavy_check_mark:]centos7.6
+- [:heavy_check_mark:]rabbitmq
+- [:heavy_check_mark:]Elasticsearch + logstash + kibana + filebeat
+- [:heavy_check_mark:]onekey一键安装脚本[centos]
+- [ ]clickhouse
 
 
 
